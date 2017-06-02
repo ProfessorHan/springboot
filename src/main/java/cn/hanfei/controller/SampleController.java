@@ -1,11 +1,18 @@
 package cn.hanfei.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SampleController {
+
+  /*  @Autowired
+    private TestService testService;*/
+
+    @Value("${hanfei}")
+    String string;
 
     @RequestMapping("/")
     @ResponseBody
@@ -16,7 +23,8 @@ public class SampleController {
     @RequestMapping("/login")
     @ResponseBody
     String login() {
-        return "韩斐然";
+//        testService.talk();
+        return string;
     }
 
   /*  public static void main(String[] args) throws Exception {
